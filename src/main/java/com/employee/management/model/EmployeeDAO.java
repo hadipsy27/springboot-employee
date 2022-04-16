@@ -18,4 +18,11 @@ public class EmployeeDAO {
     public List<Employee> getAllEmplyees(){
         return list; // Sudah di inisialisasi di atas
     }
+
+    public Employee getEmployeeById(int empId) {
+        return  list.stream()
+                .filter(employee -> employee.getEmployeeId() == empId)
+                .findAny().orElse(null);
+
+    }
 }

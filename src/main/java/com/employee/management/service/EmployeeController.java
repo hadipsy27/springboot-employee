@@ -4,6 +4,7 @@ import com.employee.management.model.Employee;
 import com.employee.management.model.EmployeeDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -17,6 +18,12 @@ public class EmployeeController {
     @GetMapping("/employees")
     public List<Employee> getAll(){
         return service.getAllEmplyees();
+    }
+
+    @GetMapping("/employees/{empId}")
+    public Employee getEmployeeById(@PathVariable int empId){
+        Employee employee = service.getEmployeeById(empId);
+        return employee;
     }
 
 }

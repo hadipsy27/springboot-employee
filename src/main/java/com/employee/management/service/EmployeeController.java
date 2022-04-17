@@ -1,5 +1,6 @@
 package com.employee.management.service;
 
+import com.employee.management.execption_handler.EmployeeNotFound;
 import com.employee.management.model.Employee;
 import com.employee.management.model.EmployeeDAO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,8 @@ public class EmployeeController {
     @GetMapping("/employees/{empId}")
     public Employee getEmployeeById(@PathVariable int empId){
         Employee employee = service.getEmployeeById(empId);
+        if(null == employee)
+            throw new EmployeeNotFound("Employee not found");
         return employee;
     }
 

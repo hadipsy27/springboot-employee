@@ -22,4 +22,12 @@ public class EmployeeGlobalExceptionhandler extends ResponseEntityExceptionHandl
 
     }
 
+    @ExceptionHandler(EmployeeNotFound.class) // Spesific Error message to not found
+    public ResponseEntity<Object> handleEmployeeNotFoundException(Exception exception, WebRequest webRequest){
+        EmployeeExecptionResponse employeeExecptionResponse = new EmployeeExecptionResponse(exception.getMessage(),
+                webRequest.getDescription(false), new Date());
+        return new ResponseEntity<Object>(employeeExecptionResponse, HttpStatus.NOT_FOUND);
+
+    }
+
 }

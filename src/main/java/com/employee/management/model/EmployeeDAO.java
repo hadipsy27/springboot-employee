@@ -25,4 +25,9 @@ public class EmployeeDAO {
                 .findAny().orElse(null);
 
     }
+
+    public void saveEmployee(Employee employee) {
+        employee.setEmployeeId(list.size()+123);
+        list.add(employee);
+    }
 }

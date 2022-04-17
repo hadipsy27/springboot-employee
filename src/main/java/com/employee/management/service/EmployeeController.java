@@ -3,9 +3,7 @@ package com.employee.management.service;
 import com.employee.management.model.Employee;
 import com.employee.management.model.EmployeeDAO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,6 +22,11 @@ public class EmployeeController {
     public Employee getEmployeeById(@PathVariable int empId){
         Employee employee = service.getEmployeeById(empId);
         return employee;
+    }
+
+    @PostMapping("/employees")
+    public void saveEmployee(@RequestBody Employee employee){
+        service.saveEmployee(employee);
     }
 
 }

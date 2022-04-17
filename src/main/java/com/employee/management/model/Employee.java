@@ -2,14 +2,18 @@ package com.employee.management.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Size;
 
 @Data
 @AllArgsConstructor
 public class Employee {
 
     private int employeeId;
-    private String name, email;
-
+    @Size(min = 3, max = 5, message = "Invalid chars for Name")
+    private String name;
+    @Email
+    private String email;
 
 }

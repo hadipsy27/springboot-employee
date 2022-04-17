@@ -5,9 +5,11 @@ import com.employee.management.model.Employee;
 import com.employee.management.model.EmployeeDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 
@@ -31,7 +33,7 @@ public class EmployeeController {
     }
 
     @PostMapping("/employees")
-    public ResponseEntity<Object> saveEmployee(@RequestBody Employee employee){
+    public ResponseEntity<Object> saveEmployee(@Valid @RequestBody Employee employee){
         Employee newEmployee = service.saveEmployee(employee);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("{employeeId}")

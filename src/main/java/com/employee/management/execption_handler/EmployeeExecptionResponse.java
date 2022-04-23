@@ -10,6 +10,6 @@ import java.util.Date;
 public class EmployeeExecptionResponse {
 
     private String errorMessage, description;
-    private Date ateAndTime;
+    private Date dateAndTime;
 
 }

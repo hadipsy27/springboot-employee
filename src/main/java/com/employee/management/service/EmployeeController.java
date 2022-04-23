@@ -4,8 +4,10 @@ import com.employee.management.execption_handler.EmployeeNotFound;
 import com.employee.management.model.Employee;
 import com.employee.management.model.EmployeeDAO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.Link;
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -25,11 +27,14 @@ public class EmployeeController {
     }
 
     @GetMapping("/employees/{empId}")
-    public Employee getEmployeeById(@PathVariable int empId){
+    public EntityModel<Employee> getEmployeeById(@PathVariable int empId){
         Employee employee = service.getEmployeeById(empId);
         if(null == employee)
             throw new EmployeeNotFound("Employee not found");
-        return employee;
+        EntityModel<Employee> model = EntityModel.of(employee);
+        Link link = WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(this.getClass()).getAll()).withRel("all-employees");
+        model.add(link);
+        return model;
     }
 
     @PostMapping("/employees")

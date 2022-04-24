@@ -14,3 +14,11 @@ Section : 2
 2. Validation
 3. Implement Hateoas
 4. Content Negotiation
+
+Section : 3
+====================
+1. Swagger Documentation
+
+
+* Command to clean and build with skip tests
+`mvn clean install -DskipTests`

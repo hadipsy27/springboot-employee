@@ -18,6 +18,8 @@ Section : 2
 Section : 3
 ====================
 1. Swagger Documentation
+- `http://localhost:8081/v2/api-docs`
+- `http://localhost:8081/swagger-ui/`
 
 
 * Command to clean and build with skip tests

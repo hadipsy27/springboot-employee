@@ -1,6 +1,12 @@
 # Learn Springboot
 
+* Command to clean and build with skip tests
+- `mvn clean install -DskipTests`
+* Command to run application
+- `mvn clean spring-boot:run`
+
 Section : 1
+====================
 1. Create DTO and Controllers
 2. Implement GET Method
 3. Implement POST Method
@@ -10,6 +16,7 @@ Section : 1
 7. Implement DELETE Method
 
 Section : 2
+====================
 1. Exception Handling
 2. Validation
 3. Implement Hateoas
@@ -20,7 +27,3 @@ Section : 3
 1. Swagger Documentation
 - `http://localhost:8081/v2/api-docs`
 - `http://localhost:8081/swagger-ui/`
-
-
-* Command to clean and build with skip tests
-`mvn clean install -DskipTests`

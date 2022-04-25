@@ -11,7 +11,7 @@ import javax.validation.constraints.Size;
 public class Employee {
 
     private int employeeId;
-    @Size(min = 3, max = 5, message = "Invalid chars for Name")
+    @Size(min = 3, max = 20, message = "Invalid chars for Name")
     private String name;
     @Email
     private String email;

@@ -20,7 +20,7 @@ Section : 2
 1. Exception Handling
 2. Validation
 3. Implement Hateoas
-4. Content Negotiation
+4. Content Negotiation (JSON/XML)
 
 Section : 3
 ====================

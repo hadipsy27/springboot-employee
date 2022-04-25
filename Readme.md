@@ -7,7 +7,7 @@
 
 Section : 1
 ====================
-1. Create DTO and Controllers
+1. Create DAO and Controllers
 2. Implement GET Method
 3. Implement POST Method
 4. Handling Response
